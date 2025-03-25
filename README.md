@@ -1,6 +1,6 @@
 # PRML_25_proj
 
-# � VLSI Partitioning using Classical ML Techniques
+# VLSI Partitioning using Classical ML Techniques
 
 This repository contains the codebase for our **CSL2050: Pattern Recognition and Machine Learning** course project at IIT Jodhpur. Our objective is to apply classical machine learning techniques to the problem of **VLSI netlist partitioning**.
 
