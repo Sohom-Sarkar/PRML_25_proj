@@ -18,20 +18,20 @@ The goal is to **partition the netlist** into balanced components while minimizi
 - 📐 **Area imbalance**
 
 ## ⚙️ Project Structure
-📁 models/
-├── Kmeans_1d.py
-├── Agglomerative_model.py
-├── SVM_model.py
-└── Logistic_model.py
+📁 models/<br>
+  |- Kmeans_1d.py<br>
+  |- Agglomerative_model.py<br>
+  |- SVM_model.py<br>
+  -- Logistic_model.py<br>
 
-📁 utils/
-├── graph_gen.py # Graph and netlist generator
-└── crit_path.py # Critical path analysis
+📁 utils/<br>
+ |- graph_gen.py # Graph and netlist generator<br>
+ -- crit_path.py # Critical path analysis<br>
 
-📁 notebooks/
-├── Graph_Gen_1_2.ipynb
-├── Crit_Path_1.ipynb
-└── Kmeans_1d.ipynb
+📁 notebooks/<br>
+ |- Graph_Gen_1_2.ipynb<br>
+ |- Crit_Path_1.ipynb<br>
+ -- Kmeans_1d.ipynb<br>
 
 
 ## 🤖 Implemented Models
