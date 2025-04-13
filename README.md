@@ -67,4 +67,51 @@ Each model returns:
 ```bash
 git clone https://github.com/Sohom-Sarkar/PRML_25_proj.git
 cd PRML_25_proj
+```
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Generate a graph and run a model:
+```bash
+from utils.graph_gen import generate_netlist
+from Models.SVM_model import train_svm_on_graph
+
+G, inputs, outputs = generate_netlist(num_nodes=50, num_edges=100)
+results = train_svm_on_graph(G)
+print(results)
+```
+
+📄 Deliverables
+Mid-term report
+
+Classical ML model implementations
+
+Final report (in progress)
+
+Spotlight video
+
+Project webpage
+
+Web/demo inference script
+
+Minutes of meetings
+
+👥 Team
+Sohom Sarkar [B23EE1099]
+
+Rudra Khokhani
+
+Aditya Jha
+
+Tula Mrudhul
+
+Sambhav Jha
+
+📜 License
+This repository is for academic purposes under IIT Jodhpur's PRML course. All rights reserved by the authors.
+
+
 
