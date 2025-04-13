@@ -19,20 +19,20 @@ The goal is to partition the netlist into balanced components while minimizing:
 
 ## 📁 Project Structure:
 PRML_25_proj/
-├── Analysis/
-├── Dataset/
-├── Models/
-│ ├── Agglomerative_model.py
-│ ├── Kmeans_1d.py
-│ ├── Logistic_model.py
-│ └── SVM_model.py
-├── Pre-Processing/
-├── utils/
-│ ├── crit_path.py
-│ └── graph_gen.py
-├── app.py
-├── README.md
-└── requirements.txt
+- Analysis/
+- Dataset/
+- Models/
+-- Agglomerative_model.py
+-- Kmeans_1d.py
+-- Logistic_model.py
+-- SVM_model.py
+- Pre-Processing/
+- utils/
+-- crit_path.py
+-- graph_gen.py
+- app.py
+- README.md
+- requirements.txt
 
 
 ## 🧪 Implemented Models
@@ -43,6 +43,7 @@ PRML_25_proj/
 | `Agglomerative_model.py`  | Unsupervised  | Hierarchical clustering with power/area features |
 | `SVM_model.py`            | Supervised    | Trained on pseudo-labels from KMeans |
 | `Logistic_model.py`       | Supervised    | Probabilistic binary classifier for partitioning |
+| `Spectral_cl.py`          | Unsupervised  | Uses affinity matrix (exp(-awires+bdist)) and Spectral Clustering algorithm. |
 
 Each model returns:
 
@@ -60,6 +61,7 @@ Each model returns:
 | SVM              | 19        | 149.2       | 29.5  | ⚖️            | ⚖️           |
 | Logistic Reg.    | 21        | 150.8       | 30.1  | ⚖️            | ⚖️           |
 | Agglomerative    | 17        | 162.7       | 54.6  | ✅            | ✅           |
+| Spectral         | 43        | 2748.7      | 634.4 | ✅            | ✅           |
 
 ## 🚀 How to Run
 
