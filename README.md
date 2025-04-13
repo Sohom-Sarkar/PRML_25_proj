@@ -86,31 +86,33 @@ results = train_svm_on_graph(G)
 print(results)
 ```
 
-📄 Deliverables
-Mid-term report
+📄 Deliverables:
 
-Classical ML model implementations
+- Mid-term report
 
-Final report (in progress)
+- Classical ML model implementations
 
-Spotlight video
+- Final report (in progress)
 
-Project webpage
+- Spotlight video
 
-Web/demo inference script
+- Project webpage
 
-Minutes of meetings
+- Web/demo inference script
 
-👥 Team
-Sohom Sarkar [B23EE1099]
+- Minutes of meetings
 
-Rudra Khokhani
+👥 Team:
 
-Aditya Jha
+- Sohom Sarkar [B23EE1099]
 
-Tula Mrudhul
+- Rudra Khokhani
 
-Sambhav Jha
+- Aditya Jha
+
+- Tula Mrudhul
+
+- Sambhav Jha
 
 📜 License
 This repository is for academic purposes under IIT Jodhpur's PRML course. All rights reserved by the authors.
