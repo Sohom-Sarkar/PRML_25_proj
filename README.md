@@ -79,23 +79,23 @@ vlsi-ml-partitioning/
 
 # Implemented Models
 
-1. KMeans Clustering (1D)
+1. __KMeans Clustering (1D)__
 - Strengths: Fast convergence, computational efficiency, interpretable
 - Limitations: Sensitive to initial centroid selection, requires predefined number of clusters (k)
 
-2. Agglomerative Clustering
+2. __Agglomerative Clustering__
 - Strengths: Hierarchical visualization, doesn’t require predefined cluster count, works well for certain topologies
 - Limitations: Performance depends heavily on graph structure
 
-3. Support Vector Machines (SVM)
+3. __Support Vector Machines (SVM)__
 - Strengths: Handles non-linear separation via kernels, robust to outliers
 - Limitations: Less interpretable with non-linear kernels, requires tuning
 
-4. Logistic Regression
+4. __Logistic Regression__
 - Strengths: Fast, efficient, interpretable coefficients
 - Limitations: Assumes linearly separable classes, sensitive to noise
 
-5. Spectral Clustering
+5. __Spectral Clustering__
 - Strengths: Captures non-convex clusters, leverages global graph structure
 - Limitations: Computationally expensive, sensitive to hyperparameters
 
