@@ -1,0 +1,7 @@
+Metric,Value
+Number of Edge Cuts,25
+Total Wire Length,1997.3299999999997
+Critical Path Before Scaling,N_22 -> N_32 -> N_1 -> N_43 -> N_45 -> N_24 -> N_0 -> N_42 -> N_44 -> N_16 -> OUT_0
+Critical Path Length Before Scaling,69.60000000000001
+Critical Path After Scaling,N_25 -> N_23 -> N_1 -> N_13 -> N_40 -> N_15 -> N_6 -> N_35 -> N_8 -> OUT_2
+Critical Path Length After Scaling,279.13
