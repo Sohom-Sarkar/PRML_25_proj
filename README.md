@@ -1,121 +1,100 @@
-# VLSI Partitioning Using Classical ML Techniques
+# VLSI Netlist Partitioning using Classical Machine Learning
 
-This repository contains the codebase for our CSL2050: Pattern Recognition and Machine Learning course project at IIT Jodhpur. Our objective is to apply classical machine learning techniques to the problem of VLSI netlist partitioning.
+This project explores the application of classical machine learning techniques to the partitioning of VLSI (Very Large Scale Integration) circuit netlists. We represent VLSI designs as directed graphs and aim to divide them into balanced and efficient subgraphs while minimizing key metrics including:
 
-## 🧠 Problem Overview
+- **Number of interconnections (cut size)**
+- **Total wire length**
+- **Critical path delay**
 
-In modern VLSI design, a circuit is represented as a netlist graph, where:
+Our approach evaluates multiple models, including unsupervised clustering techniques (KMeans, Agglomerative Clustering, Spectral Clustering) and supervised classification methods (SVM, Logistic Regression) applied to synthetic circuit graphs.
 
-- **Nodes** represent gates/components with attributes like power and area
-- **Edges** represent wires between components with attributes like distance and wires
+---
 
-The goal is to partition the netlist into balanced components while minimizing:
+## 🚀 Features
 
-- ✂️ Cut edges (inter-partition connections)
-- 🔌 Total wire length
-- ⏱️ Critical path delay
-- ⚡ Power consumption imbalance
-- 📐 Area imbalance
+- **Synthetic Graph Generator**: Creates realistic VLSI netlist representations with configurable parameters
+- **Multiple Partitioning Models**: Implements and compares 5 different ML techniques
+- **Comprehensive Evaluation**: Analyzes model performance across various graph sizes and densities
+- **Interactive Visualization**: Includes Streamlit app for real-time exploration and comparison
+- **Extensible Framework**: Easily add new models and evaluation metrics
 
-## 📁 Project Structure:
-PRML_25_proj/
-- Analysis/
-- Dataset/
-- Models/
--- Agglomerative_model.py
--- Kmeans_1d.py
--- Logistic_model.py
--- SVM_model.py
-- Pre-Processing/
-- utils/
--- crit_path.py
--- graph_gen.py
-- app.py
-- README.md
-- requirements.txt
+---
 
+## 🔧 Installation
 
-## 🧪 Implemented Models
-
-| Model                     | Type          | Description |
-|---------------------------|---------------|-------------|
-| `Kmeans_1d.py`            | Unsupervised  | Clusters 1D projected features (distance-based) |
-| `Agglomerative_model.py`  | Unsupervised  | Hierarchical clustering with power/area features |
-| `SVM_model.py`            | Supervised    | Trained on pseudo-labels from KMeans |
-| `Logistic_model.py`       | Supervised    | Probabilistic binary classifier for partitioning |
-| `Spectral_cl.py`          | Unsupervised  | Uses affinity matrix (exp(-awires+bdist)) and Spectral Clustering algorithm. |
-
-Each model returns:
-
-- `partition_map`: Node → Cluster ID
-- `cut_edges`: Number of cross-cluster connections
-- `total_wire_length`: Overall wire length
-- `partition_power`, `partition_area`: Stats per partition
-- `silhouette_score`: Cluster compactness score
-
-## 📊 Sample Results
-
-| Model            | Cut Edges | Wire Length | Delay | Power Balance | Area Balance |
-|------------------|-----------|-------------|-------|---------------|--------------|
-| KMeans           | 22        | 151.4       | 32.9  | ⚖️ ~equal     | ⚖️ ~equal    |
-| SVM              | 19        | 149.2       | 29.5  | ⚖️            | ⚖️           |
-| Logistic Reg.    | 21        | 150.8       | 30.1  | ⚖️            | ⚖️           |
-| Agglomerative    | 17        | 162.7       | 54.6  | ✅            | ✅           |
-| Spectral         | 43        | 2748.7      | 634.4 | ✅            | ✅           |
-
-## 🚀 How to Run
-
-1. Clone the repository:
 ```bash
-git clone https://github.com/Sohom-Sarkar/PRML_25_proj.git
-cd PRML_25_proj
+# Clone the repository
+git clone https://github.com/your-username/vlsi-ml-partitioning.git
+cd vlsi-ml-partitioning
 ```
-
-2. Install dependencies:
 ```bash
+# Create and activate virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-3. Generate a graph and run a model:
-```bash
-from utils.graph_gen import generate_netlist
-from Models.SVM_model import train_svm_on_graph
+# Quick Start
+```python
+from src.graph_generator import NetlistGenerator
+from src.models import SpectralClustering, KMeansClustering
+from src.evaluation import evaluate_partition
 
-G, inputs, outputs = generate_netlist(num_nodes=50, num_edges=100)
-results = train_svm_on_graph(G)
-print(results)
+# Generate a synthetic netlist
+generator = NetlistGenerator(nodes=100, edge_factor=1.5)
+graph = generator.generate()
+
+# Apply spectral clustering
+model = SpectralClustering(alpha=0.5, n_clusters=2)
+partition = model.fit_predict(graph)
+
+# Evaluate the partitioning
+metrics = evaluate_partition(graph, partition)
+print(f"Cut size: {metrics['cut_size']}")
+print(f"Delay: {metrics['delay']}")
+print(f"Wire length: {metrics['wire_length']}")
 ```
 
-📄 Deliverables:
+# Running the Streamlit App
+```bash
+streamlit run app.py
+```
 
-- Mid-term report
+# Project Structure
 
-- Classical ML model implementations
+vlsi-ml-partitioning/
+├── data/                  # Sample graph datasets and benchmarks
+├── notebooks/             # Jupyter notebooks for analysis and visualization
+├── src/                   # Source code
+│   ├── graph_generator.py # Graph generation module
+│   ├── models/            # ML models implementation
+│   ├── evaluation.py      # Metrics and evaluation functions
+│   └── utils.py           # Helper functions
+├── app.py                 # Streamlit application
+├── requirements.txt       # Dependencies
+└── README.md              # This file
 
-- Final report (in progress)
+# Implemented Models
 
-- Spotlight video
+1. KMeans Clustering (1D)
+- Strengths: Fast convergence, computational efficiency, interpretable
+- Limitations: Sensitive to initial centroid selection, requires predefined number of clusters (k)
 
-- Project webpage
+2. Agglomerative Clustering
+- Strengths: Hierarchical visualization, doesn’t require predefined cluster count, works well for certain topologies
+- Limitations: Performance depends heavily on graph structure
 
-- Web/demo inference script
+3. Support Vector Machines (SVM)
+- Strengths: Handles non-linear separation via kernels, robust to outliers
+- Limitations: Less interpretable with non-linear kernels, requires tuning
 
-- Minutes of meetings
+4. Logistic Regression
+- Strengths: Fast, efficient, interpretable coefficients
+- Limitations: Assumes linearly separable classes, sensitive to noise
 
-👥 Team:
-
-- Sohom Sarkar [B23EE1099]
-
-- Rudra Khokhani
-
-- Aditya Jha
-
-- Tula Mrudhul
-
-- Sambhav Jha
-
-📜 License
-This repository is for academic purposes under IIT Jodhpur's PRML course. All rights reserved by the authors.
-
-
-
+5. Spectral Clustering
+- Strengths: Captures non-convex clusters, leverages global graph structure
+- Limitations: Computationally expensive, sensitive to hyperparameters
