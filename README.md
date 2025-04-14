@@ -66,16 +66,16 @@ streamlit run app.py
 # Project Structure
 
 vlsi-ml-partitioning/
-├── data/                  # Sample graph datasets and benchmarks
-├── notebooks/             # Jupyter notebooks for analysis and visualization
-├── src/                   # Source code
-│   ├── graph_generator.py # Graph generation module
-│   ├── models/            # ML models implementation
-│   ├── evaluation.py      # Metrics and evaluation functions
-│   └── utils.py           # Helper functions
-├── app.py                 # Streamlit application
-├── requirements.txt       # Dependencies
-└── README.md              # This file
+- data/                  # Sample graph datasets and benchmarks
+- notebooks/             # Jupyter notebooks for analysis and visualization
+- src/                   # Source code
+-- graph_generator.py # Graph generation module
+-- models/            # ML models implementation
+-- evaluation.py      # Metrics and evaluation functions
+-- utils.py           # Helper functions
+- app.py                 # Streamlit application
+- requirements.txt       # Dependencies
+- README.md              # This file
 
 # Implemented Models
 
@@ -98,3 +98,41 @@ vlsi-ml-partitioning/
 5. Spectral Clustering
 - Strengths: Captures non-convex clusters, leverages global graph structure
 - Limitations: Computationally expensive, sensitive to hyperparameters
+
+# Experimental Results:
+Sparse Graphs (edges = nodes × 1.5)
+
+| Model                      | Normalized Cuts | Normalized Delay |
+|----------------------------|-----------------|------------------|
+| Spectral Clustering (α=0.25) | 1.682           | 11.886           |
+| Spectral Clustering (α=0.5)  | 1.688           | 11.112           |
+| Spectral Clustering (α=0.75) | 1.698           | 10.993           |
+| Agglomerative               | 2.398           | 12.133           |
+
+## Dense Graphs (edges = nodes × 3)
+Similar trends were observed with stronger distinction between models, highlighting the importance of model selection for denser graphs.
+
+# Key Findings:
+- Spectral Clustering delivers the best performance for minimizing cut size.
+- The α parameter in Spectral Clustering offers trade-offs between delay and cut size.
+- Agglomerative Clustering balances performance and efficiency.
+- Performance differences increase with graph density.
+- Simple models like 1D-KMeans struggle with complex node relationships.
+
+# Future Work:
+
+- Incorporating Graph Neural Networks
+- Adding thermal/power-aware layout optimization
+- Evaluating on standard benchmarks (ISCAS85, MCNC)
+- Integrating timing-closure-aware simulators
+- Developing hybrid methods combining ML with traditional heuristics
+
+# Dependencies:
+
+- Python 3.7+
+- NumPy
+- NetworkX
+- scikit-learn
+- Matplotlib
+- Streamlit
+- pandas
