@@ -69,7 +69,7 @@ vlsi-ml-partitioning/
 - data/                  # Sample graph datasets and benchmarks
 - notebooks/             # Jupyter notebooks for analysis and visualization
 - src/                   # Source code
--- graph_generator.py # Graph generation module
+  - graph_generator.py # Graph generation module
 -- models/            # ML models implementation
 -- evaluation.py      # Metrics and evaluation functions
 -- utils.py           # Helper functions
