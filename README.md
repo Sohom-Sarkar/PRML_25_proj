@@ -58,10 +58,9 @@ print(f"Delay: {metrics['delay']}")
 print(f"Wire length: {metrics['wire_length']}")
 ```
 
-# Running the Streamlit App
-```bash
-streamlit run app.py
-```
+# Project Page
+- Check out the deployed project (using **Google Cloud Platform**) here: [Live Demo](https://vlsi-partitioning-final-763874766709.asia-south1.run.app/)  
+- GitHub Repository of the project page website: [GitHub Repo](https://github.com/adityajha-iitj/prml-project-page)
 
 # Project Structure
 
